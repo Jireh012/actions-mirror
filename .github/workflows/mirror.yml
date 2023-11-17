@@ -55,4 +55,4 @@ jobs:
           cd ./${{ matrix.source }}
           git remote add gitee https://oauth2:${{ secrets.ACTIONS_TOKEN }}@gitee.com/${{ matrix.dest }}.git
           git fetch gitee
-          git push --mirror gitee
+          git push -f gitea --mirror
