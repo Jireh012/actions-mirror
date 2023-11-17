@@ -16,11 +16,41 @@ jobs:
             source: "actions/stale"
           - dest: "actions-mirror/docker-metadata-action"
             source: "docker/metadata-action"
+          - dest: "actions-mirror/docker-setup-qemu-action"
+            source: "docker/setup-qemu-action"
+          - dest: "actions-mirror/docker-build-push-action"
+            source: "docker/build-push-action"
+          - dest: "actions-mirror/docker-setup-buildx-action"
+            source: "docker/setup-buildx-action"
+          - dest: "actions-mirror/docker-login-action"
+            source: "docker/login-action"
+          - dest: "actions-mirror/setup-dotnet"
+            source: "actions/setup-dotnet"
+          - dest: "actions-mirror/download-artifact"
+            source: "actions/download-artifact"
+          - dest: "actions-mirror/upload-artifact"
+            source: "actions/upload-artifact"
+          - dest: "actions-mirror/setup-python"
+            source: "actions/setup-python"
+          - dest: "actions-mirror/setup-node"
+            source: "actions/setup-node"
+          - dest: "actions-mirror/setup-go"
+            source: "actions/setup-go"
+          - dest: "actions-mirror/cache"
+            source: "actions/cache"
+          - dest: "actions-mirror/setup-java"
+            source: "actions/setup-java"
+          - dest: "actions-mirror/setup-maven"
+            source: "stCarolas/setup-maven"
+          - dest: "actions-mirror/maven-settings-action"
+            source: "s4u/maven-settings-action"
+          - dest: "actions-mirror/goreleaser-action"
+            source: "goreleaser/goreleaser-action"
+          
     runs-on: ubuntu-latest
     steps:
       - name: mirror github.com/${{ matrix.source }} to gitee.com/${{ matrix.dest }}
         run: |
-          mkdir -p actions docker
           git clone --mirror https://github.com/${{ matrix.source }} ./${{ matrix.source }}
           cd ./${{ matrix.source }}
           git remote add gitee https://oauth2:${{ secrets.ACTIONS_TOKEN }}@gitee.com/${{ matrix.dest }}.git
