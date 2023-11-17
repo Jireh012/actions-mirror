@@ -19,5 +19,5 @@ jobs:
           mkdir -p actions gitee
           git clone --mirror https://github.com/${{ matrix.source }} ./${{ matrix.source }}
           cd ./${{ matrix.source }}
-          git remote add cn https://x-access-token:${{ secrets.ACTIONS_TOKEN }}@gitee.com/${{ matrix.dest }}.git
+          git remote add cn https://${{ secrets.ACTIONS_TOKEN }}@gitee.com/${{matrix.dest}}
           git push --mirror cn
