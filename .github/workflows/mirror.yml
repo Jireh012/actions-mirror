@@ -54,5 +54,8 @@ jobs:
           git clone --mirror https://github.com/${{ matrix.source }} ./${{ matrix.source }}
           cd ./${{ matrix.source }}
           git remote add gitee https://oauth2:${{ secrets.ACTIONS_TOKEN }}@gitee.com/${{ matrix.dest }}.git
-          git fetch gitee
+          # https://stackoverflow.com/questions/47776357/git-push-mirror-without-pull-refs
+          git show-ref | cut -d' ' -f2 | grep 'pull' | xargs -r -L1 git update-ref -d
           git push -f gitee --mirror
+
+
