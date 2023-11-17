@@ -18,6 +18,8 @@ jobs:
         run: |
           git clone --mirror https://github.com/${{ matrix.source }} ./${{ matrix.source }}
           cd ./${{ matrix.source }}
-          git remote add cn https://hb0730:${{ secrets.ACTIONS_TOKEN }}@gitee.com/${{ matrix.dest }}.git
-          git fetch cn
-          git push --mirror cn
+          git remote add gitee https://gitee.com/${{ matrix.dest }}.git
+          git fetch gitee
+          git push --mirror gitee
+        env:
+          GITEE_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
