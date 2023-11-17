@@ -1,0 +1,23 @@
+name: Mirror actions
+run-name: mirror actions
+
+on:
+  push:
+  schedule:
+    - cron:  '0 */12 * * *' # every 12 hours on the hour
+jobs:
+  mirrors:
+    strategy:
+      matrix:
+        include:
+           - dest: "actions-mirror/checkout"
+             source: "actions/checkout"
+    runs-on: ubuntu-latest
+    steps:
+      - name: mirror github.com/${{ matrix.source }} to gitee.cn/${{ matrix.dest }}
+        run: |
+          mkdir -p actions gitee
+          git clone --mirror https://github.com/${{ matrix.source }} ./${{ matrix.source }}
+          cd ./${{ matrix.source }}
+          git remote add cn https://x-access-token:${{ secrets.ACTIONS_TOKEN }}@gitee.cn/${{ matrix.dest }}.git
+          git push --mirror cn
