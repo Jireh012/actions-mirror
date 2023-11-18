@@ -46,6 +46,8 @@ jobs:
             source: "s4u/maven-settings-action"
           - dest: "actions-mirror/goreleaser-action"
             source: "goreleaser/goreleaser-action"
+          - dest: "actions-mirror/bot-notice-action"
+            source: "hb0730/bot-notice-action"
           
     runs-on: ubuntu-latest
     steps:
