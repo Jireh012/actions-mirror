@@ -1,0 +1,13 @@
+name: action 同步请求
+description: 请填写你需要的action repo所在
+body:
+  - type: textarea
+    attributes:
+      label: action repo所在
+      description: action repo需要是public
+      validations:
+        required: true
+  - type: textarea
+    attributes:
+      label: 其他说明
+      description: 如有其他要求请说明 比如同步过来的repo名称
