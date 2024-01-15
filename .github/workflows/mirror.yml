@@ -50,6 +50,10 @@ jobs:
             source: "hb0730/bot-notice-action"
           - dest: "actions-mirror/maven-action"
             source: "hb0730/maven-action"
+          - dest: "actions-mirror/release-changelog-builder-action"
+            source: "mikepenz/release-changelog-builder-action"
+          - dest: "actions-mirror/gitea-release-action"
+            source: "akkuman/gitea-release-action"
           
     runs-on: ubuntu-latest
     steps:
