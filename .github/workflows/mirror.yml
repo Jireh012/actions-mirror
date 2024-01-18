@@ -8,6 +8,7 @@ on:
 jobs:
   mirrors:
     strategy:
+      fail-fast: false
       matrix:
         include:
           - dest: "actions-mirror/checkout"
