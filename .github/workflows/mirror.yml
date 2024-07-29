@@ -57,6 +57,8 @@ jobs:
             source: "akkuman/gitea-release-action"
           - dest: "actions-mirror-Jireh/action-send-mail"
             source: "dawidd6/action-send-mail"
+          - dest: "actions-mirror-Jireh/ssh-action"
+            source: "appleboy/ssh-action"
           
     runs-on: ubuntu-latest
     steps:
