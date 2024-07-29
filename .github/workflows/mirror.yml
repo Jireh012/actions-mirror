@@ -59,6 +59,8 @@ jobs:
             source: "dawidd6/action-send-mail"
           - dest: "actions-mirror-Jireh/ssh-action"
             source: "appleboy/ssh-action"
+          - dest: "actions-mirror-Jireh/github-action-scp"
+            source: "garygrossgarten/github-action-scp"
           
     runs-on: ubuntu-latest
     steps:
