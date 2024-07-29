@@ -55,6 +55,8 @@ jobs:
             source: "mikepenz/release-changelog-builder-action"
           - dest: "actions-mirror-Jireh/gitea-release-action"
             source: "akkuman/gitea-release-action"
+          - dest: "actions-mirror-Jireh/action-send-mail"
+            source: "dawidd6/action-send-mail"
           
     runs-on: ubuntu-latest
     steps:
