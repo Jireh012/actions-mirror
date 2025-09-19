@@ -61,8 +61,6 @@ jobs:
             source: "appleboy/ssh-action"
           - dest: "actions-mirror-Jireh/github-action-scp"
             source: "garygrossgarten/github-action-scp"
-          - dest: "actions-mirror-Jireh/gitea"
-            source: "go-gitea/gitea"
           
     runs-on: ubuntu-latest
     steps:
